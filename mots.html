@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JÀNG DU WEES — Lecture des mots</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f5f8ff;
+    color: #172033;
+    -webkit-font-smoothing: antialiased;
+}
+
+.page {
+    width: min(1050px, 94%);
+    margin: 20px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 10px 35px rgba(18, 63, 192, 0.10);
+}
+
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #123fc0, #2458d6);
+    color: white;
+    border-radius: 24px;
+    padding: 34px 18px;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: clamp(34px, 7vw, 54px);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.header p {
+    margin: 10px 0 0;
+    font-size: clamp(16px, 3vw, 20px);
+}
+
+
+/* =========================
+   TITRE
+========================= */
+
+.title {
+    text-align: center;
+    margin: 0;
+    color: #172033;
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 800;
+}
+
+.intro {
+    max-width: 760px;
+    margin: 16px auto 30px;
+    text-align: center;
+    color: #647089;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CONSIGNE
+========================= */
+
+.instruction {
+    padding: 18px 20px;
+    margin-bottom: 26px;
+    background: #f5f8ff;
+    border-left: 5px solid #123fc0;
+    border-radius: 12px;
+    color: #526078;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.instruction strong {
+    color: #123fc0;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section {
+    margin-top: 24px;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #dce5ff;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px rgba(18, 63, 192, 0.06);
+}
+
+.section h2 {
+    margin: 0;
+    text-align: center;
+    color: #123fc0;
+    font-size: clamp(23px, 5vw, 30px);
+    font-weight: 800;
+}
+
+.section-text {
+    margin: 9px 0 20px;
+    text-align: center;
+    color: #647089;
+    font-size: 16px;
+}
+
+.line {
+    width: 48px;
+    height: 4px;
+    margin: 0 auto 22px;
+    background: #123fc0;
+    border-radius: 10px;
+}
+
+
+/* =========================
+   MOTS
+========================= */
+
+.words {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.word-card {
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 18px;
+
+    background: #f7f9ff;
+    border: 1px solid #dce5ff;
+    border-radius: 18px;
+
+    transition: 0.2s ease;
+}
+
+.word-card:hover {
+    transform: translateY(-3px);
+    border-color: #123fc0;
+    box-shadow: 0 8px 22px rgba(18, 63, 192, 0.10);
+}
+
+.word {
+    color: #123fc0;
+    font-size: clamp(30px, 6vw, 44px);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.read {
+    margin-top: 8px;
+    color: #718097;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   CONSEIL
+========================= */
+
+.advice {
+    margin-top: 28px;
+    padding: 24px;
+    text-align: center;
+    background: #f7f9ff;
+    border: 1px solid #dce5ff;
+    border-radius: 22px;
+}
+
+.advice h2 {
+    margin: 0 0 10px;
+    color: #172033;
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.advice p {
+    max-width: 700px;
+    margin: auto;
+    color: #647089;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.button {
+    flex: 1;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.back {
+    color: #123fc0;
+    background: #ffffff;
+    border: 1px solid #cdd8f5;
+}
+
+.exercise {
+    color: #ffffff;
+    background: #123fc0;
+    border: 1px solid #123fc0;
+}
+
+.back:hover {
+    background: #f5f8ff;
+}
+
+.exercise:hover {
+    background: #0d329f;
+}
+
+
+/* =========================
+   TABLETTE
+========================= */
+
+@media (max-width: 760px) {
+
+    .page {
+        width: 96%;
+        margin: 12px auto;
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .words {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================
+   TÉLÉPHONE
+========================= */
+
+@media (max-width: 430px) {
+
+    .page {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 27px 14px;
+        border-radius: 20px;
+    }
+
+    .header h1 {
+        font-size: 33px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 18px 14px;
+    }
+
+    .words {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .word-card {
+        min-height: 110px;
+        padding: 12px;
+    }
+
+    .word {
+        font-size: 31px;
+    }
+
+    .read {
+        font-size: 12px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header class="header">
+
+        <h1>JÀNG DU WEES</h1>
+
+        <p>Lecture des mots</p>
+
+    </header>
+
+
+    <!-- =========================
+         TITRE
+    ========================== -->
+
+    <h2 class="title">
+        LECTURE DES MOTS
+    </h2>
+
+    <p class="intro">
+
+        Maintenant que tu as travaillé les lettres,
+        les voyelles, les consonnes et les graphies,
+        tu peux commencer à lire des mots.
+
+    </p>
+
+
+    <!-- =========================
+         CONSIGNE
+    ========================== -->
+
+    <div class="instruction">
+
+        <strong>Consigne :</strong>
+        regarde chaque mot et lis-le lentement
+        à voix haute.
+
+    </div>
+
+
+    <!-- =========================
+         SÉRIE 1
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            Série 1
+        </h2>
+
+        <p class="section-text">
+            Lis chaque mot calmement.
+        </p>
+
+        <div class="line"></div>
+
+
+        <div class="words">
+
+            <div class="word-card">
+                <div class="word">ami</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">papa</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">maman</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">mari</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">papi</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">lami</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SÉRIE 2
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            Série 2
+        </h2>
+
+        <p class="section-text">
+            Continue et prends ton temps.
+        </p>
+
+        <div class="line"></div>
+
+
+        <div class="words">
+
+            <div class="word-card">
+                <div class="word">papa</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">maman</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+            <div class="word-card">
+                <div class="word">ami</div>
+                <div class="read">Lis le mot</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONSEIL
+    ========================== -->
+
+    <section class="advice">
+
+        <h2>
+            Bien lire, c'est progresser
+        </h2>
+
+        <p>
+
+            Ne te dépêche pas.
+            Regarde les lettres, reconnais les sons
+            et lis le mot à voix haute.
+            Avec la pratique, ta lecture deviendra
+            progressivement plus facile.
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="navigation">
+
+        <a
+            class="button back"
+            href="exercices.html">
+
+            ← Retour aux exercices
+
+        </a>
+
+        <a
+            class="button exercise"
+            href="test.html">
+
+            Continuer vers le test →
+
+        </a>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>

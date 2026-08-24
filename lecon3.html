@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JÀNG DU WEES - Leçon 3</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #222;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .header {
+            background: white;
+            border: 3px solid #123fc0;
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #123fc0;
+            font-size: 32px;
+        }
+
+        .header h2 {
+            margin: 10px 0 0;
+            color: #d71919;
+            font-size: 25px;
+        }
+
+        .teacher {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .lesson-title {
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+
+        .lesson-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #123fc0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .lesson-title span {
+            color: #123fc0;
+            font-size: 32px;
+            font-weight: bold;
+            vertical-align: middle;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-box {
+            background: white;
+            border: 2px dashed #123fc0;
+            border-radius: 25px;
+            padding: 30px 15px;
+        }
+
+        .syllables {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px 15px;
+        }
+
+        .syllable-card {
+            text-align: center;
+        }
+
+        /*
+         * POLICE PLUS CLAIRE ET PLUS LISIBLE
+         * On utilise une écriture cursive élégante,
+         * tout en gardant les lettres bien séparées.
+         */
+        .syllable {
+            font-family: "Segoe Print", "Bradley Hand", "Comic Sans MS", cursive;
+            font-size: 58px;
+            font-weight: 600;
+            min-height: 80px;
+            letter-spacing: 1px;
+        }
+
+        /* ==============================
+           COULEURS PÉDAGOGIQUES
+        ================================= */
+
+        .blue {
+            color: #123fc0 !important;
+        }
+
+        .red {
+            color: #d71919 !important;
+        }
+
+        .writing-lines {
+            margin-top: 10px;
+        }
+
+        .line {
+            height: 18px;
+            border-bottom: 2px solid #123fc0;
+            margin: 0 10px;
+        }
+
+        .dashed {
+            border-bottom: 2px dashed #123fc0;
+            position: relative;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #123fc0;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: -7px;
+            transform: translateX(-50%);
+        }
+
+        /* ==============================
+           VALIDATION DE LA LEÇON
+        ================================= */
+
+        .completion {
+            margin-top: 30px;
+            padding: 24px 18px;
+            background: white;
+            border: 2px solid #dce5ff;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .completion h3 {
+            margin: 0 0 10px;
+            color: #123fc0;
+            font-size: 24px;
+        }
+
+        .completion p {
+            margin: 0 auto 18px;
+            color: #555;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .complete-button {
+            width: 100%;
+            max-width: 500px;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #123fc0;
+            color: white;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .complete-button:hover {
+            background: #0d329f;
+        }
+
+        .complete-button.completed {
+            background: #1f8f4d;
+            cursor: default;
+        }
+
+        .completion-message {
+            display: none;
+            margin-top: 15px !important;
+            color: #1f8f4d !important;
+            font-weight: bold;
+        }
+
+        .completion-message.show {
+            display: block;
+        }
+
+        /* ==============================
+           NAVIGATION
+        ================================= */
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .previous {
+            background: #e8edff;
+            color: #123fc0;
+            border: 2px solid #123fc0;
+        }
+
+        .next {
+            background: #123fc0;
+            color: white;
+        }
+
+        /* ==============================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 650px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .lesson-title span {
+                font-size: 24px;
+            }
+
+            .syllables {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .syllable {
+                font-size: 48px;
+            }
+
+            .completion {
+                padding: 20px 14px;
+            }
+
+            .complete-button {
+                font-size: 16px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header class="header">
+
+        <h1>
+            JÀNG DU WEES
+        </h1>
+
+        <h2>
+            Les syllabes complexes
+        </h2>
+
+        <div class="teacher">
+            Enseignant : M. DIOUF
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         TITRE DE LA LEÇON
+    ========================== -->
+
+    <section class="lesson-title">
+
+        <div>
+
+            <span class="lesson-number">
+                3
+            </span>
+
+            <span>
+                Les syllabes courantes
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <div class="subtitle">
+        (En écriture cursive)
+    </div>
+
+
+    <!-- =========================
+         CONTENU DE LA LEÇON
+    ========================== -->
+
+    <main class="lesson-box">
+
+        <div class="syllables">
+
+
+            <!-- =====================
+                 ar
+            ====================== -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">a</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 or
+            ====================== -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">o</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 air
+            ====================== -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">a</span><span class="blue">i</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 oir
+            ====================== -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">o</span><span class="blue">i</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 our
+            ====================== -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">o</span><span class="blue">u</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- =====================
+                 eur
+            ====================== -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">e</span><span class="blue">u</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         VALIDATION DE LA LEÇON
+    ========================== -->
+
+    <section class="completion">
+
+        <h3>
+            Leçon terminée ?
+        </h3>
+
+        <p>
+            Lorsque tu as terminé cette leçon,
+            appuie sur le bouton ci-dessous pour
+            enregistrer ta progression.
+        </p>
+
+        <button
+            type="button"
+            id="completeLessonButton"
+            class="complete-button">
+
+            ✓ J'AI TERMINÉ CETTE LEÇON
+
+        </button>
+
+        <p
+            id="completionMessage"
+            class="completion-message">
+
+            ✓ Leçon 3 enregistrée comme terminée !
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="buttons">
+
+        <a
+            href="lecon2.html"
+            class="btn previous">
+
+            ← Leçon précédente
+
+        </a>
+
+        <a
+            href="lecon4.html"
+            class="btn next">
+
+            Leçon suivante →
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================== -->
+
+<script>
+
+const completeLessonButton =
+    document.getElementById("completeLessonButton");
+
+const completionMessage =
+    document.getElementById("completionMessage");
+
+const lesson3Key =
+    "jangduwees_lecon_3";
+
+
+function showLessonCompleted() {
+
+    completeLessonButton.textContent =
+        "✓ LEÇON 3 TERMINÉE";
+
+    completeLessonButton.classList.add("completed");
+
+    completionMessage.classList.add("show");
+
+}
+
+
+completeLessonButton.addEventListener("click", function () {
+
+    localStorage.setItem(
+        lesson3Key,
+        "terminee"
+    );
+
+    showLessonCompleted();
+
+});
+
+
+if (
+    localStorage.getItem(lesson3Key)
+    === "terminee"
+) {
+
+    showLessonCompleted();
+
+}
+
+</script>
+
+</body>
+</html>

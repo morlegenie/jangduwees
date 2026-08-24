@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JÀNG DU WEES — Choisis ton niveau</title>
+
+<style>
+
+/* ==============================
+   BASE
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f5f8ff;
+    color: #172033;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ==============================
+   PAGE
+================================= */
+
+.page {
+    width: min(1080px, 94%);
+    margin: 24px auto;
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 28px;
+    box-shadow:
+        0 10px 35px rgba(18, 63, 192, 0.10);
+}
+
+
+/* ==============================
+   HEADER
+================================= */
+
+.header {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        #123fc0,
+        #2458d6
+    );
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 38px 20px;
+    margin-bottom: 32px;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    top: -70px;
+    right: -50px;
+}
+
+.header::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    bottom: -55px;
+    left: -35px;
+}
+
+.header h1 {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    font-size: clamp(34px, 7vw, 58px);
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.header p {
+    position: relative;
+    z-index: 1;
+    margin: 12px 0 0;
+    font-size: clamp(16px, 3vw, 20px);
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+
+/* ==============================
+   INTRO
+================================= */
+
+.intro {
+    max-width: 760px;
+    margin: 0 auto 34px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #526078;
+}
+
+
+/* ==============================
+   TITRE PRINCIPAL
+================================= */
+
+.main-title {
+    margin: 0 0 26px;
+    text-align: center;
+    color: #123fc0;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+
+/* ==============================
+   NIVEAUX
+================================= */
+
+.levels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+
+/* ==============================
+   CARTE NIVEAU
+================================= */
+
+.level {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid #dce5ff;
+    border-radius: 22px;
+    padding: 26px 22px;
+    box-shadow:
+        0 5px 18px rgba(18, 63, 192, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.level:hover {
+    transform: translateY(-5px);
+    border-color: #123fc0;
+    box-shadow:
+        0 12px 30px rgba(18, 63, 192, 0.14);
+}
+
+
+/* ==============================
+   NUMERO
+================================= */
+
+.level-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 105px;
+
+    padding: 8px 14px;
+
+    border-radius: 50px;
+
+    background: #eef3ff;
+    color: #123fc0;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+}
+
+
+/* ==============================
+   TITRE DU NIVEAU
+================================= */
+
+.level-title {
+    margin: 16px 0 10px;
+
+    color: #172033;
+
+    font-size: clamp(22px, 4vw, 28px);
+
+    font-weight: 800;
+
+    letter-spacing: -0.3px;
+}
+
+
+/* ==============================
+   LIGNE BLEUE
+================================= */
+
+.level-line {
+    width: 45px;
+    height: 4px;
+
+    border-radius: 10px;
+
+    background: #123fc0;
+
+    margin-bottom: 16px;
+}
+
+
+/* ==============================
+   DESCRIPTION
+================================= */
+
+.level-description {
+    margin: 0;
+
+    color: #647089;
+
+    font-size: 16px;
+
+    line-height: 1.65;
+
+    min-height: 78px;
+}
+
+
+/* ==============================
+   BOUTON
+================================= */
+
+.level-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 22px;
+
+    padding: 14px 20px;
+
+    border-radius: 13px;
+
+    background: #123fc0;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.level-button:hover {
+    background: #0d329f;
+    transform: translateY(-1px);
+}
+
+
+/* ==============================
+   PARCOURS
+================================= */
+
+.path {
+    margin-top: 32px;
+
+    padding: 26px;
+
+    border-radius: 22px;
+
+    background: #f7f9ff;
+
+    border: 1px solid #dce5ff;
+
+    text-align: center;
+}
+
+.path h2 {
+    margin: 0 0 10px;
+
+    color: #172033;
+
+    font-size: clamp(23px, 4vw, 30px);
+
+    font-weight: 800;
+}
+
+.path p {
+    margin: 0 0 20px;
+
+    color: #647089;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   ETAPES
+================================= */
+
+.path-line {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.path-item {
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    border: 1px solid #d8e1fa;
+
+    color: #123fc0;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+.arrow {
+    color: #8a96aa;
+
+    font-weight: 700;
+}
+
+
+/* ==============================
+   RETOUR
+================================= */
+
+.back-button {
+    display: block;
+
+    width: min(360px, 100%);
+
+    margin: 28px auto 0;
+
+    padding: 14px 20px;
+
+    border: 1px solid #cdd8f5;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    color: #123fc0;
+
+    font-family: inherit;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.back-button:hover {
+    background: #f5f8ff;
+    border-color: #123fc0;
+}
+
+
+/* ==============================
+   TABLETTE
+================================= */
+
+@media (max-width: 760px) {
+
+    .page {
+        width: 96%;
+        margin: 12px auto;
+        padding: 16px;
+        border-radius: 24px;
+    }
+
+    .header {
+        padding: 32px 16px;
+        border-radius: 20px;
+    }
+
+    .levels {
+        grid-template-columns: 1fr;
+    }
+
+    .level-description {
+        min-height: auto;
+    }
+}
+
+
+/* ==============================
+   TELEPHONE
+================================= */
+
+@media (max-width: 430px) {
+
+    .page {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 28px 14px;
+    }
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .intro {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .main-title {
+        font-size: 27px;
+    }
+
+    .level {
+        padding: 22px 18px;
+    }
+
+    .level-title {
+        font-size: 23px;
+    }
+
+    .level-description {
+        font-size: 15.5px;
+    }
+
+    .path {
+        padding: 20px 14px;
+    }
+
+    .path-line {
+        gap: 6px;
+    }
+
+    .path-item {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header class="header">
+
+        <h1>
+            JÀNG DU WEES
+        </h1>
+
+        <p>
+            Il n'est jamais trop tard pour apprendre.
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         INTRODUCTION
+    ========================== -->
+
+    <p class="intro">
+
+        Choisis ton niveau et avance à ton propre rythme.
+        Chaque étape est conçue pour t'aider à lire,
+        écrire et progresser en français.
+
+    </p>
+
+
+    <!-- =========================
+         TITRE
+    ========================== -->
+
+    <h2 class="main-title">
+
+        CHOISIS TON NIVEAU
+
+    </h2>
+
+
+    <!-- =========================
+         NIVEAUX
+    ========================== -->
+
+    <section class="levels">
+
+
+        <!-- NIVEAU 1 -->
+
+        <div class="level">
+
+            <div class="level-number">
+                NIVEAU 1
+            </div>
+
+            <h3 class="level-title">
+                Alphabet
+            </h3>
+
+            <div class="level-line"></div>
+
+            <p class="level-description">
+
+                Découvre les lettres de l'alphabet,
+                les majuscules, les minuscules et
+                les bases de l'écriture.
+
+            </p>
+
+            <a
+                class="level-button"
+                href="lecon1.html">
+
+                Commencer
+
+            </a>
+
+        </div>
+
+
+        <!-- NIVEAU 2 -->
+
+        <div class="level">
+
+            <div class="level-number">
+                NIVEAU 2
+            </div>
+
+            <h3 class="level-title">
+                Syllabes simples
+            </h3>
+
+            <div class="level-line"></div>
+
+            <p class="level-description">
+
+                Apprends progressivement les syllabes
+                et découvre comment les lettres
+                se combinent.
+
+            </p>
+
+            <a
+                class="level-button"
+                href="lecon2.html">
+
+                Commencer
+
+            </a>
+
+        </div>
+
+
+        <!-- NIVEAU 3 -->
+
+        <div class="level">
+
+            <div class="level-number">
+                NIVEAU 3
+            </div>
+
+            <h3 class="level-title">
+                Syllabes complexes
+            </h3>
+
+            <div class="level-line"></div>
+
+            <p class="level-description">
+
+                Approfondis ton apprentissage avec
+                des graphies et des syllabes
+                plus complexes.
+
+            </p>
+
+            <a
+                class="level-button"
+                href="lecon3.html">
+
+                Commencer
+
+            </a>
+
+        </div>
+
+
+        <!-- NIVEAU 4 -->
+
+        <div class="level">
+
+            <div class="level-number">
+                NIVEAU 4
+            </div>
+
+            <h3 class="level-title">
+                Lecture et écriture
+            </h3>
+
+            <div class="level-line"></div>
+
+            <p class="level-description">
+
+                Mets en pratique ce que tu as appris
+                grâce à la lecture, aux mots
+                et aux exercices.
+
+            </p>
+
+            <a
+                class="level-button"
+                href="mots.html">
+
+                Commencer
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         PARCOURS
+    ========================== -->
+
+    <section class="path">
+
+        <h2>
+            Ton parcours d'apprentissage
+        </h2>
+
+        <p>
+            Progresse étape par étape jusqu'à la maîtrise
+            de la lecture.
+        </p>
+
+
+        <div class="path-line">
+
+            <span class="path-item">
+                Leçons
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+            <span class="path-item">
+                Test de lecture
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+            <span class="path-item">
+                Mots
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+            <span class="path-item">
+                Exercices
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+            <span class="path-item">
+                Tests
+            </span>
+
+            <span class="arrow">
+                →
+            </span>
+
+            <span class="path-item">
+                Progression
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RETOUR
+    ========================== -->
+
+    <button
+        class="back-button"
+        onclick="history.back()">
+
+        ← Retour
+
+    </button>
+
+
+</div>
+
+
+</body>
+</html>

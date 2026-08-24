@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JÀNG DU WEES - Leçon 9</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #222;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .header {
+            background: white;
+            border: 3px solid #123fc0;
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #123fc0;
+            font-size: 32px;
+        }
+
+        .header h2 {
+            margin: 10px 0 0;
+            color: #d71919;
+            font-size: 24px;
+        }
+
+        .lesson-title {
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+
+        .lesson-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #123fc0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .lesson-name {
+            color: #123fc0;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-box {
+            background: white;
+            border: 2px dashed #123fc0;
+            border-radius: 25px;
+            padding: 30px 15px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px 10px;
+            margin-bottom: 45px;
+        }
+
+        .syllable-card {
+            text-align: center;
+        }
+
+        /*
+         * Écriture cursive lisible
+         */
+        .syllable {
+            font-family: "Segoe Print", "Comic Sans MS", cursive;
+            font-size: 52px;
+            font-weight: bold;
+            min-height: 75px;
+            letter-spacing: 1px;
+        }
+
+        /*
+         * IMPORTANT :
+         * Chaque lettre possède sa propre couleur.
+         */
+        .blue {
+            color: #123fc0 !important;
+        }
+
+        .red {
+            color: #d71919 !important;
+        }
+
+        .writing-lines {
+            margin-top: 10px;
+        }
+
+        .line {
+            height: 18px;
+            border-bottom: 2px solid #123fc0;
+            margin: 0 8px;
+        }
+
+        .dashed {
+            border-bottom: 2px dashed #123fc0;
+            position: relative;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #123fc0;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            transform: translateX(-50%);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .previous {
+            background: #e8edff;
+            color: #123fc0;
+            border: 2px solid #123fc0;
+        }
+
+        .next {
+            background: #123fc0;
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .lesson-name {
+                font-size: 23px;
+            }
+
+            .row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .syllable {
+                font-size: 44px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- EN-TÊTE -->
+    <header class="header">
+
+        <h1>JÀNG DU WEES</h1>
+
+        <h2>Les syllabes complexes</h2>
+
+    </header>
+
+
+    <!-- TITRE DE LA LEÇON -->
+    <section class="lesson-title">
+
+        <span class="lesson-number">9</span>
+
+        <span class="lesson-name">
+            Les syllabes complexes
+        </span>
+
+    </section>
+
+
+    <div class="subtitle">
+        (En écriture cursive)
+    </div>
+
+
+    <!-- CONTENU DE LA LEÇON -->
+    <main class="lesson-box">
+
+
+        <!-- ================================= -->
+        <!-- PREMIÈRE LIGNE -->
+        <!-- tr - pr - dr - br -->
+        <!-- ================================= -->
+
+        <div class="row">
+
+            <!-- tr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">t</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- pr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">p</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- dr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">d</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- br -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">b</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!-- DEUXIÈME LIGNE -->
+        <!-- fr - vr - cr - gr -->
+        <!-- ================================= -->
+
+        <div class="row">
+
+            <!-- fr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">f</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- vr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">v</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- cr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">c</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <!-- gr -->
+
+            <div class="syllable-card">
+
+                <div class="syllable">
+                    <span class="blue">g</span><span class="red">r</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- BOUTONS DE NAVIGATION -->
+
+    <div class="buttons">
+
+        <a href="lecon8.html" class="btn previous">
+            ← Leçon précédente
+        </a>
+
+        <a href="lecon10.html" class="btn next">
+            Leçon suivante →
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

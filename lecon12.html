@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JÀNG DU WEES - Leçon 12</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #222;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .header {
+            background: white;
+            border: 3px solid #123fc0;
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #123fc0;
+            font-size: 32px;
+        }
+
+        .header h2 {
+            margin: 10px 0 0;
+            color: #d71919;
+            font-size: 24px;
+        }
+
+        .lesson-title {
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+
+        .lesson-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #123fc0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .lesson-name {
+            color: #123fc0;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-box {
+            background: white;
+            border: 2px dashed #123fc0;
+            border-radius: 25px;
+            padding: 30px 15px;
+        }
+
+        .lesson-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: nowrap;
+            gap: 12px;
+            margin-bottom: 45px;
+            overflow-x: auto;
+            padding: 5px 0 15px;
+        }
+
+        .element {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .syllable {
+            font-family: "Comic Sans MS", cursive;
+            font-size: 48px;
+            font-weight: bold;
+            min-height: 65px;
+            white-space: nowrap;
+        }
+
+        .equals {
+            font-family: Arial, sans-serif;
+            font-size: 38px;
+            font-weight: bold;
+            color: #123fc0;
+            flex-shrink: 0;
+        }
+
+        .writing-lines {
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .line {
+            height: 16px;
+            border-bottom: 2px solid #123fc0;
+            margin: 0 5px;
+        }
+
+        .dashed {
+            border-bottom: 2px dashed #123fc0;
+            position: relative;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            background: #123fc0;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .previous {
+            background: #e8edff;
+            color: #123fc0;
+            border: 2px solid #123fc0;
+        }
+
+        .next {
+            background: #123fc0;
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .lesson-name {
+                font-size: 23px;
+            }
+
+            .lesson-line {
+                justify-content: flex-start;
+            }
+
+            .syllable {
+                font-size: 42px;
+            }
+
+            .equals {
+                font-size: 32px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- EN-TÊTE -->
+
+    <header class="header">
+        <h1>JÀNG DU WEES</h1>
+        <h2>Les syllabes complexes</h2>
+    </header>
+
+
+    <!-- TITRE DE LA LEÇON -->
+
+    <section class="lesson-title">
+
+        <span class="lesson-number">12</span>
+
+        <span class="lesson-name">
+            Les syllabes complexes
+        </span>
+
+    </section>
+
+
+    <div class="subtitle">
+        (En écriture cursive)
+    </div>
+
+
+    <!-- CONTENU DE LA LEÇON -->
+
+    <main class="lesson-box">
+
+
+        <!-- ================================================= -->
+        <!-- PREMIÈRE LIGNE : e = eu = eux = œu                -->
+        <!-- TOUTES LES LETTRES EN BLEU                       -->
+        <!-- ================================================= -->
+
+        <div class="lesson-line">
+
+            <!-- e -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">e</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- eu -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">eu</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- eux -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">eux</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- œu -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">œu</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- DEUXIÈME LIGNE : é = er = ed = et = ez            -->
+        <!-- TOUTES LES LETTRES EN BLEU                       -->
+        <!-- ================================================= -->
+
+        <div class="lesson-line">
+
+            <!-- é -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">é</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- er -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">er</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- ed -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">ed</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- et -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">et</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- ez -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">ez</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- TROISIÈME LIGNE : ié = ier = ied = iet = iez      -->
+        <!-- LAISSÉE STRICTEMENT INTACTE                      -->
+        <!-- ================================================= -->
+
+        <div class="lesson-line">
+
+            <div class="element">
+                <div class="syllable">
+                    <span style="color: #123fc0;">i</span><span style="color: #d71919;">é</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="equals">=</div>
+
+            <div class="element">
+                <div class="syllable">
+                    <span style="color: #123fc0;">i</span><span style="color: #d71919;">er</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="equals">=</div>
+
+            <div class="element">
+                <div class="syllable">
+                    <span style="color: #123fc0;">i</span><span style="color: #d71919;">ed</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="equals">=</div>
+
+            <div class="element">
+                <div class="syllable">
+                    <span style="color: #123fc0;">i</span><span style="color: #d71919;">et</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+            <div class="equals">=</div>
+
+            <div class="element">
+                <div class="syllable">
+                    <span style="color: #123fc0;">i</span><span style="color: #d71919;">ez</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- QUATRIÈME LIGNE : è = ei = ai = es = est          -->
+        <!-- TOUTES LES LETTRES EN BLEU                       -->
+        <!-- ================================================= -->
+
+        <div class="lesson-line">
+
+            <!-- è -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">è</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- ei -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">ei</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- ai -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">ai</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- es -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">es</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+
+            <div class="equals">=</div>
+
+
+            <!-- est -->
+
+            <div class="element">
+
+                <div class="syllable">
+                    <span style="color: #123fc0;">est</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed">
+                        <span class="dot"></span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- BOUTONS DE NAVIGATION -->
+
+    <div class="buttons">
+
+        <a href="lecon11.html" class="btn previous">
+            ← Leçon précédente
+        </a>
+
+        <a href="test.html" class="btn next">
+            Passer au test →
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

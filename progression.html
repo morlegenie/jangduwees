@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JÀNG DU WEES — Ma progression</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f5f8ff;
+    color: #172033;
+}
+
+.page {
+    width: min(1050px, 94%);
+    margin: 20px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 10px 35px rgba(18, 63, 192, 0.10);
+}
+
+
+/* =========================
+   EN-TÊTE
+========================= */
+
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #123fc0, #2458d6);
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 34px 18px;
+    margin-bottom: 28px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: clamp(32px, 7vw, 52px);
+    font-weight: 800;
+}
+
+.header p {
+    margin: 10px 0 0;
+    font-size: clamp(16px, 3vw, 20px);
+}
+
+
+/* =========================
+   TITRE
+========================= */
+
+.title {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(28px, 6vw, 42px);
+    font-weight: 800;
+}
+
+.intro {
+    max-width: 760px;
+    margin: 16px auto 30px;
+    text-align: center;
+    color: #647089;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   POURCENTAGE
+========================= */
+
+.progress-box {
+    padding: 24px;
+    margin-bottom: 28px;
+
+    background: #f7f9ff;
+    border: 1px solid #dce5ff;
+    border-radius: 22px;
+
+    text-align: center;
+}
+
+.progress-box h2 {
+    margin: 0 0 8px;
+    color: #123fc0;
+    font-size: 28px;
+}
+
+.progress-number {
+    margin: 8px 0;
+
+    color: #123fc0;
+
+    font-size: 48px;
+    font-weight: 800;
+}
+
+.progress-text {
+    margin: 0;
+    color: #647089;
+    font-size: 16px;
+}
+
+
+/* =========================
+   BARRE DE PROGRESSION
+========================= */
+
+.progress-bar {
+    width: 100%;
+    height: 18px;
+
+    margin-top: 20px;
+
+    background: #dfe6f8;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: #123fc0;
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    margin-top: 24px;
+    padding: 24px;
+
+    border: 1px solid #dce5ff;
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow: 0 5px 18px rgba(18, 63, 192, 0.06);
+}
+
+.section h2 {
+    margin: 0 0 8px;
+
+    text-align: center;
+
+    color: #123fc0;
+
+    font-size: clamp(23px, 5vw, 30px);
+
+    font-weight: 800;
+}
+
+.section p {
+    margin: 0 0 20px;
+
+    text-align: center;
+
+    color: #647089;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   LEÇONS
+========================= */
+
+.lessons {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.lesson {
+    min-height: 105px;
+
+    padding: 16px;
+
+    border: 1px solid #dce5ff;
+
+    border-radius: 17px;
+
+    background: #f7f9ff;
+
+    text-align: center;
+}
+
+.lesson-number {
+    display: block;
+
+    color: #123fc0;
+
+    font-size: 22px;
+
+    font-weight: 800;
+}
+
+.lesson-status {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 6px 12px;
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    background: #e8edf9;
+
+    color: #647089;
+}
+
+.lesson.completed {
+    background: #f0f6ff;
+
+    border-color: #123fc0;
+}
+
+.lesson.completed .lesson-status {
+    background: #123fc0;
+
+    color: #ffffff;
+}
+
+
+/* =========================
+   ÉTAPES FINALES
+========================= */
+
+.steps {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+.step {
+    min-height: 120px;
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    background: #f7f9ff;
+
+    border: 1px solid #dce5ff;
+
+    text-align: center;
+}
+
+.step-icon {
+    font-size: 30px;
+}
+
+.step h3 {
+    margin: 8px 0 5px;
+
+    color: #172033;
+
+    font-size: 18px;
+}
+
+.step p {
+    margin: 0;
+
+    color: #718097;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   BOUTONS
+========================= */
+
+.navigation {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.button {
+    flex: 1;
+
+    min-height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.back {
+    color: #123fc0;
+
+    background: #ffffff;
+
+    border: 1px solid #cdd8f5;
+}
+
+.next {
+    color: #ffffff;
+
+    background: #123fc0;
+
+    border: 1px solid #123fc0;
+}
+
+
+/* =========================
+   TABLETTE
+========================= */
+
+@media (max-width: 760px) {
+
+    .page {
+        width: 96%;
+
+        margin: 12px auto;
+
+        padding: 16px;
+    }
+
+    .lessons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   TÉLÉPHONE
+========================= */
+
+@media (max-width: 430px) {
+
+    .page {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 27px 14px;
+    }
+
+    .header h1 {
+        font-size: 33px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 18px 14px;
+    }
+
+    .lessons {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 9px;
+    }
+
+    .lesson {
+        min-height: 95px;
+
+        padding: 13px 8px;
+    }
+
+    .lesson-number {
+        font-size: 19px;
+    }
+
+    .lesson-status {
+        font-size: 11px;
+
+        padding: 5px 8px;
+    }
+
+    .progress-number {
+        font-size: 42px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header class="header">
+
+        <h1>
+            JÀNG DU WEES
+        </h1>
+
+        <p>
+            Suis ton apprentissage
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         TITRE
+    ========================== -->
+
+    <h2 class="title">
+        MA PROGRESSION
+    </h2>
+
+    <p class="intro">
+
+        Cette page te permet de voir ton avancement
+        dans le parcours d'apprentissage.
+
+    </p>
+
+
+    <!-- =========================
+         PROGRESSION GÉNÉRALE
+    ========================== -->
+
+    <section class="progress-box">
+
+        <h2>
+            Progression générale
+        </h2>
+
+        <div
+            class="progress-number"
+            id="progressNumber">
+
+            0%
+
+        </div>
+
+        <p
+            class="progress-text"
+            id="progressText">
+
+            0 leçon sur 12 terminée
+
+        </p>
+
+
+        <div class="progress-bar">
+
+            <div
+                class="progress-fill"
+                id="progressFill">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         LEÇONS
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            Mes 12 leçons
+        </h2>
+
+        <p>
+            Les leçons terminées apparaîtront comme validées.
+        </p>
+
+
+        <div class="lessons">
+
+
+            <div class="lesson" data-lesson="1">
+
+                <span class="lesson-number">
+                    Leçon 1
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="2">
+
+                <span class="lesson-number">
+                    Leçon 2
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="3">
+
+                <span class="lesson-number">
+                    Leçon 3
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="4">
+
+                <span class="lesson-number">
+                    Leçon 4
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="5">
+
+                <span class="lesson-number">
+                    Leçon 5
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="6">
+
+                <span class="lesson-number">
+                    Leçon 6
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="7">
+
+                <span class="lesson-number">
+                    Leçon 7
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="8">
+
+                <span class="lesson-number">
+                    Leçon 8
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="9">
+
+                <span class="lesson-number">
+                    Leçon 9
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="10">
+
+                <span class="lesson-number">
+                    Leçon 10
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="11">
+
+                <span class="lesson-number">
+                    Leçon 11
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+            <div class="lesson" data-lesson="12">
+
+                <span class="lesson-number">
+                    Leçon 12
+                </span>
+
+                <span class="lesson-status">
+                    À faire
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SUITE DU PARCOURS
+    ========================== -->
+
+    <section class="section">
+
+        <h2>
+            Suite du parcours
+        </h2>
+
+        <p>
+            Après les 12 leçons, continue ton apprentissage.
+        </p>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Test de lecture
+                </h3>
+
+                <p>
+                    50 éléments à lire.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    📖
+                </div>
+
+                <h3>
+                    Lecture des mots
+                </h3>
+
+                <p>
+                    Lis progressivement des mots.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Progression
+                </h3>
+
+                <p>
+                    Continue à apprendre à ton rythme.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="navigation">
+
+        <a
+            class="button back"
+            href="niveaux.html">
+
+            ← Retour aux niveaux
+
+        </a>
+
+
+        <a
+            class="button next"
+            href="mots.html">
+
+            Lecture des mots →
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* =================================

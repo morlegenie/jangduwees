@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JÀNG DU WEES — Leçon 1</title>
+
+<style>
+
+/* ==============================
+   BASE
+================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f5f8ff;
+    color: #172033;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ==============================
+   PAGE
+================================= */
+
+.page {
+    width: min(1050px, 94%);
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 10px 35px rgba(18, 63, 192, 0.10);
+}
+
+
+/* ==============================
+   EN-TÊTE
+================================= */
+
+.header {
+    text-align: center;
+    background: linear-gradient(135deg, #123fc0, #2458d6);
+    color: #ffffff;
+    border-radius: 24px;
+    padding: 32px 18px;
+    margin-bottom: 28px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: clamp(32px, 7vw, 52px);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.header p {
+    margin: 10px 0 0;
+    font-size: clamp(16px, 3vw, 20px);
+    opacity: 0.95;
+}
+
+
+/* ==============================
+   BADGE LEÇON
+================================= */
+
+.lesson-badge {
+    width: fit-content;
+    margin: 0 auto 16px;
+
+    padding: 8px 16px;
+
+    border-radius: 50px;
+
+    background: #eef3ff;
+    color: #123fc0;
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+}
+
+
+/* ==============================
+   TITRE PRINCIPAL
+================================= */
+
+.main-title {
+    margin: 0;
+    text-align: center;
+
+    color: #172033;
+
+    font-size: clamp(28px, 6vw, 42px);
+
+    font-weight: 800;
+}
+
+
+/* ==============================
+   INTRODUCTION
+================================= */
+
+.intro {
+    max-width: 760px;
+
+    margin: 18px auto 30px;
+
+    text-align: center;
+
+    color: #647089;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   SECTION
+================================= */
+
+.section {
+    margin-top: 24px;
+
+    padding: 24px;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5ff;
+
+    box-shadow: 0 5px 18px rgba(18, 63, 192, 0.06);
+}
+
+
+/* ==============================
+   TITRE SECTION
+================================= */
+
+.section-title {
+    margin: 0 0 8px;
+
+    color: #123fc0;
+
+    font-size: clamp(23px, 5vw, 30px);
+
+    font-weight: 800;
+
+    text-align: center;
+}
+
+.section-subtitle {
+    margin: 0 0 20px;
+
+    text-align: center;
+
+    color: #647089;
+
+    font-size: 16px;
+}
+
+
+/* ==============================
+   LIGNE BLEUE
+================================= */
+
+.blue-line {
+    width: 48px;
+    height: 4px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 10px;
+
+    background: #123fc0;
+}
+
+
+/* ==============================
+   ALPHABET
+================================= */
+
+.alphabet {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 10px;
+}
+
+.letter {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 62px;
+
+    border-radius: 14px;
+
+    background: #f7f9ff;
+
+    border: 1px solid #dce5ff;
+
+    color: #123fc0;
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    transition: 0.2s ease;
+}
+
+.letter:hover {
+    background: #eef3ff;
+
+    border-color: #123fc0;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   MINUSCULES
+================================= */
+
+.lowercase-title {
+    margin: 24px 0 12px;
+
+    text-align: center;
+
+    color: #526078;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.lowercase {
+    display: grid;
+
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 10px;
+}
+
+.lower-letter {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 58px;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5ff;
+
+    color: #172033;
+
+    font-size: 27px;
+
+    font-weight: 700;
+}
+
+
+/* ==============================
+   VOYELLES
+================================= */
+
+.vowels {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 12px;
+}
+
+.vowel {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 80px;
+
+    border-radius: 16px;
+
+    background: #eef3ff;
+
+    border: 2px solid #123fc0;
+
+    color: #123fc0;
+
+    font-size: 34px;
+
+    font-weight: 800;
+}
+
+
+/* ==============================
+   CONSONNES
+================================= */
+
+.consonants {
+    display: grid;
+
+    grid-template-columns: repeat(9, 1fr);
+
+    gap: 10px;
+}
+
+.consonant {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 60px;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce5ff;
+
+    color: #172033;
+
+    font-size: 25px;
+
+    font-weight: 800;
+}
+
+
+/* ==============================
+   RÈGLE PÉDAGOGIQUE
+================================= */
+
+.notice {
+    margin-top: 24px;
+
+    padding: 18px;
+
+    border-left: 5px solid #123fc0;
+
+    border-radius: 12px;
+
+    background: #f5f8ff;
+
+    color: #526078;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+.notice strong {
+    color: #123fc0;
+}
+
+
+/* ==============================
+   VALIDATION DE LA LEÇON
+================================= */
+
+.completion {
+    margin-top: 30px;
+
+    padding: 24px;
+
+    border-radius: 22px;
+
+    background: #f5f8ff;
+
+    border: 1px solid #dce5ff;
+
+    text-align: center;
+}
+
+.completion-title {
+    margin: 0 0 10px;
+
+    color: #123fc0;
+
+    font-size: 23px;
+
+    font-weight: 800;
+}
+
+.completion-text {
+    margin: 0 auto 18px;
+
+    max-width: 650px;
+
+    color: #647089;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+}
+
+.complete-button {
+    width: 100%;
+
+    max-width: 520px;
+
+    min-height: 58px;
+
+    padding: 14px 20px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #123fc0;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.complete-button:hover {
+    background: #0d329f;
+
+    transform: translateY(-1px);
+}
+
+.complete-button.completed {
+    background: #1f8f4d;
+
+    cursor: default;
+
+    transform: none;
+}
+
+.completion-message {
+    display: none;
+
+    margin: 16px 0 0;
+
+    color: #1f8f4d;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.completion-message.show {
+    display: block;
+}
+
+
+/* ==============================
+   NAVIGATION
+================================= */
+
+.navigation {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.nav-button {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.back {
+    background: #ffffff;
+
+    color: #123fc0;
+
+    border: 1px solid #cdd8f5;
+}
+
+.next {
+    background: #123fc0;
+
+    color: #ffffff;
+
+    border: 1px solid #123fc0;
+}
+
+.back:hover {
+    background: #f5f8ff;
+}
+
+.next:hover {
+    background: #0d329f;
+}
+
+
+/* ==============================
+   TABLETTE
+================================= */
+
+@media (max-width: 760px) {
+
+    .page {
+        width: 96%;
+
+        margin: 12px auto;
+
+        padding: 16px;
+
+        border-radius: 24px;
+    }
+
+    .alphabet,
+    .lowercase {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .consonants {
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    .vowels {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* ==============================
+   TÉLÉPHONE
+================================= */
+
+@media (max-width: 430px) {
+
+    .page {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 27px 14px;
+
+        border-radius: 20px;
+    }
+
+    .header h1 {
+        font-size: 33px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .main-title {
+        font-size: 28px;
+    }
+
+    .intro {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 18px 14px;
+    }
+
+    .alphabet,
+    .lowercase {
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 8px;
+    }
+
+    .letter {
+        min-height: 55px;
+
+        font-size: 24px;
+    }
+
+    .lower-letter {
+        min-height: 52px;
+
+        font-size: 23px;
+    }
+
+    .vowels {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 9px;
+    }
+
+    .vowel {
+        min-height: 68px;
+
+        font-size: 30px;
+    }
+
+    .consonants {
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 8px;
+    }
+
+    .consonant {
+        min-height: 52px;
+
+        font-size: 22px;
+    }
+
+    .completion {
+        padding: 20px 14px;
+    }
+
+    .complete-button {
+        font-size: 16px;
+    }
+
+    .navigation {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+    <!-- =========================
+         EN-TÊTE
+    ========================== -->
+
+    <header class="header">
+
+        <div class="lesson-badge">
+            LEÇON 1
+        </div>
+
+        <h1>
+            JÀNG DU WEES
+        </h1>
+
+        <p>
+            Découvrons les lettres françaises.
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         TITRE
+    ========================== -->
+
+    <h2 class="main-title">
+        L'ALPHABET
+    </h2>
+
+    <p class="intro">
+
+        Apprends d'abord à reconnaître les lettres
+        de l'alphabet français.
+        Ensuite, découvre les voyelles et les consonnes.
+
+    </p>
+
+
+    <!-- =========================
+         ALPHABET
+    ========================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            L'alphabet français
+        </h2>
+
+        <p class="section-subtitle">
+            Les 26 lettres de l'alphabet
+        </p>
+
+        <div class="blue-line"></div>
+
+
+        <div class="alphabet">
+
+            <div class="letter">A</div>
+            <div class="letter">B</div>
+            <div class="letter">C</div>
+            <div class="letter">D</div>
+            <div class="letter">E</div>
+            <div class="letter">F</div>
+            <div class="letter">G</div>
+
+            <div class="letter">H</div>
+            <div class="letter">I</div>
+            <div class="letter">J</div>
+            <div class="letter">K</div>
+            <div class="letter">L</div>
+            <div class="letter">M</div>
+            <div class="letter">N</div>
+
+            <div class="letter">O</div>
+            <div class="letter">P</div>
+            <div class="letter">Q</div>
+            <div class="letter">R</div>
+            <div class="letter">S</div>
+            <div class="letter">T</div>
+            <div class="letter">U</div>
+
+            <div class="letter">V</div>
+            <div class="letter">W</div>
+            <div class="letter">X</div>
+            <div class="letter">Y</div>
+            <div class="letter">Z</div>
+
+        </div>
+
+
+        <div class="lowercase-title">
+            Les lettres minuscules
+        </div>
+
+
+        <div class="lowercase">
+
+            <div class="lower-letter">a</div>
+            <div class="lower-letter">b</div>
+            <div class="lower-letter">c</div>
+            <div class="lower-letter">d</div>
+            <div class="lower-letter">e</div>
+            <div class="lower-letter">f</div>
+            <div class="lower-letter">g</div>
+
+            <div class="lower-letter">h</div>
+            <div class="lower-letter">i</div>
+            <div class="lower-letter">j</div>
+            <div class="lower-letter">k</div>
+            <div class="lower-letter">l</div>
+            <div class="lower-letter">m</div>
+            <div class="lower-letter">n</div>
+
+            <div class="lower-letter">o</div>
+            <div class="lower-letter">p</div>
+            <div class="lower-letter">q</div>
+            <div class="lower-letter">r</div>
+            <div class="lower-letter">s</div>
+            <div class="lower-letter">t</div>
+            <div class="lower-letter">u</div>
+
+            <div class="lower-letter">v</div>
+            <div class="lower-letter">w</div>
+            <div class="lower-letter">x</div>
+            <div class="lower-letter">y</div>
+            <div class="lower-letter">z</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VOYELLES
+    ========================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Les voyelles
+        </h2>
+
+        <p class="section-subtitle">
+            Les voyelles de cette leçon sont :
+        </p>
+
+        <div class="blue-line"></div>
+
+
+        <div class="vowels">
+
+            <div class="vowel">i</div>
+
+            <div class="vowel">o</div>
+
+            <div class="vowel">a</div>
+
+            <div class="vowel">e</div>
+
+            <div class="vowel">u</div>
+
+            <div class="vowel">y</div>
+
+        </div>
+
+
+        <div class="notice">
+
+            <strong>À retenir :</strong>
+
+            i – o – a – e – u – y
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONSONNES
+    ========================== -->
+
+    <section class="section">
+
+        <h2 class="section-title">
+            Les consonnes
+        </h2>
+
+        <p class="section-subtitle">
+            Les consonnes de cette leçon sont :
+        </p>
+
+        <div class="blue-line"></div>
+
+
+        <div class="consonants">
+
+            <div class="consonant">t</div>
+            <div class="consonant">p</div>
+            <div class="consonant">n</div>
+            <div class="consonant">m</div>
+            <div class="consonant">r</div>
+            <div class="consonant">v</div>
+            <div class="consonant">l</div>
+            <div class="consonant">d</div>
+            <div class="consonant">b</div>
+
+            <div class="consonant">j</div>
+            <div class="consonant">f</div>
+            <div class="consonant">s</div>
+            <div class="consonant">k</div>
+            <div class="consonant">g</div>
+            <div class="consonant">h</div>
+            <div class="consonant">x</div>
+            <div class="consonant">c</div>
+
+            <div class="consonant">w</div>
+            <div class="consonant">z</div>
+
+        </div>
+
+
+        <div class="notice">
+
+            <strong>À retenir :</strong>
+
+            Les consonnes sont les autres lettres
+            présentées dans cette leçon.
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VALIDATION DE LA LEÇON
+    ========================== -->
+
+    <section class="completion">
+
+        <h2 class="completion-title">
+            Leçon terminée ?
+        </h2>
+
+        <p class="completion-text">
+            Lorsque tu as terminé cette leçon,
+            appuie sur le bouton ci-dessous pour
+            enregistrer ta progression.
+        </p>
+
+        <button
+            type="button"
+            id="completeLessonButton"
+            class="complete-button">
+
+            ✓ J'AI TERMINÉ CETTE LEÇON
+
+        </button>
+
+        <p
+            id="completionMessage"
+            class="completion-message">
+
+            ✓ Leçon 1 enregistrée comme terminée !
+
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="navigation">
+
+        <a
+            class="nav-button back"
+            href="niveaux.html">
+
+            ← Retour
+
+        </a>
+
+
+        <a
+            class="nav-button next"
+            href="lecon2.html">
+
+            Leçon suivante →
+
+        </a>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+/* ==============================
+   VALIDATION LEÇON 1
+================================= */
+
+const completeLessonButton =
+    document.getElementById("completeLessonButton");
+
+const completionMessage =
+    document.getElementById("completionMessage");
+
+const lesson1Key =
+    "jangduwees_lecon_1";
+
+
+function showLessonCompleted() {
+
+    completeLessonButton.textContent =
+        "✓ LEÇON 1 TERMINÉE";
+
+    completeLessonButton.classList.add("completed");
+
+    completionMessage.classList.add("show");
+
+}
+
+
+/* ==============================
+   ENREGISTREMENT
+================================= */
+
+completeLessonButton.addEventListener("click", function () {
+
+    localStorage.setItem(lesson1Key, "terminee");
+
+    showLessonCompleted();
+
+});
+
+
+/* ==============================
+   VÉRIFICATION AU CHARGEMENT
+================================= */
+
+if (localStorage.getItem(lesson1Key) === "terminee") {
+
+    showLessonCompleted();
+
+}
+
+</script>
+
+
+</body>
+</html>

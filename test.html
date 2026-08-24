@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JÀNG DU WEES - Test de lecture</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #222;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .header {
+            background: white;
+            border: 3px solid #123fc0;
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #123fc0;
+            font-size: 32px;
+        }
+
+        .header h2 {
+            margin: 10px 0 0;
+            color: #d71919;
+            font-size: 24px;
+        }
+
+        .test-title {
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+
+        .test-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #123fc0;
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .test-name {
+            color: #123fc0;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .instruction {
+            background: white;
+            border-left: 5px solid #d71919;
+            border-radius: 12px;
+            padding: 18px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        .test-box {
+            background: white;
+            border: 2px dashed #123fc0;
+            border-radius: 25px;
+            padding: 25px 15px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .item {
+            background: #f5f8ff;
+            border: 2px solid #123fc0;
+            border-radius: 15px;
+            min-height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .number {
+            color: #123fc0;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .syllable {
+            font-family: "Comic Sans MS", cursive;
+            font-size: 32px;
+            font-weight: bold;
+            color: #123fc0;
+        }
+
+        .result-box {
+            background: white;
+            border: 2px solid #123fc0;
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-top: 25px;
+        }
+
+        .result-box h3 {
+            text-align: center;
+            color: #123fc0;
+            font-size: 25px;
+            margin-top: 0;
+        }
+
+        .attempt-display {
+            text-align: center;
+            background: #eef3ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .error-label {
+            display: block;
+            text-align: center;
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #errors {
+            display: block;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto 20px;
+            padding: 14px;
+            border: 2px solid #123fc0;
+            border-radius: 12px;
+            font-size: 20px;
+            text-align: center;
+            outline: none;
+        }
+
+        #errors:focus {
+            border-color: #d71919;
+        }
+
+        .calculate-btn {
+            display: block;
+            width: 100%;
+            max-width: 350px;
+            margin: 10px auto 20px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            background: #123fc0;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .calculate-btn:hover {
+            opacity: 0.9;
+        }
+
+        #result {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            font-size: 21px;
+            line-height: 1.6;
+        }
+
+        .success-result {
+            background: #e8f7ec;
+            border: 2px solid #168a2e;
+            color: #168a2e;
+        }
+
+        .failure-result {
+            background: #fff0f0;
+            border: 2px solid #d71919;
+            color: #d71919;
+        }
+
+        .retry-btn {
+            display: none;
+            width: 100%;
+            max-width: 350px;
+            margin: 15px auto 0;
+            padding: 14px;
+            border: 2px solid #123fc0;
+            border-radius: 12px;
+            background: white;
+            color: #123fc0;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .words-btn {
+            display: none;
+            width: 100%;
+            max-width: 350px;
+            margin: 15px auto 0;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #168a2e;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .revision-btn {
+            display: none;
+            width: 100%;
+            max-width: 350px;
+            margin: 15px auto 0;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: #d71919;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .previous {
+            background: #e8edff;
+            color: #123fc0;
+            border: 2px solid #123fc0;
+        }
+
+        .home {
+            background: #123fc0;
+            color: white;
+        }
+
+        @media (max-width: 700px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .test-name {
+                font-size: 23px;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .syllable {
+                font-size: 30px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="header">
+        <h1>JÀNG DU WEES</h1>
+        <h2>Test de lecture</h2>
+    </header>
+
+
+    <section class="test-title">
+
+        <span class="test-number">✓</span>
+
+        <span class="test-name">
+            TEST DE LECTURE
+        </span>
+
+    </section>
+
+
+    <div class="instruction">
+
+        <strong>Lis les syllabes et les graphies à voix haute.</strong>
+
+        <br>
+
+        Lis chaque élément présenté ci-dessous.
+
+    </div>
+
+
+    <main class="test-box">
+
+        <div class="grid">
+
+            <div class="item">
+                <div class="number">1</div>
+                <div class="syllable">ai</div>
+            </div>
+
+            <div class="item">
+                <div class="number">2</div>
+                <div class="syllable">or</div>
+            </div>
+
+            <div class="item">
+                <div class="number">3</div>
+                <div class="syllable">eu</div>
+            </div>
+
+            <div class="item">
+                <div class="number">4</div>
+                <div class="syllable">al</div>
+            </div>
+
+            <div class="item">
+                <div class="number">5</div>
+                <div class="syllable">an</div>
+            </div>
+
+            <div class="item">
+                <div class="number">6</div>
+                <div class="syllable">ail</div>
+            </div>
+
+            <div class="item">
+                <div class="number">7</div>
+                <div class="syllable">é</div>
+            </div>
+
+            <div class="item">
+                <div class="number">8</div>
+                <div class="syllable">tr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">9</div>
+                <div class="syllable">ph</div>
+            </div>
+
+            <div class="item">
+                <div class="number">10</div>
+                <div class="syllable">pl</div>
+            </div>
+
+            <div class="item">
+                <div class="number">11</div>
+                <div class="syllable">oi</div>
+            </div>
+
+            <div class="item">
+                <div class="number">12</div>
+                <div class="syllable">air</div>
+            </div>
+
+            <div class="item">
+                <div class="number">13</div>
+                <div class="syllable">ette</div>
+            </div>
+
+            <div class="item">
+                <div class="number">14</div>
+                <div class="syllable">in</div>
+            </div>
+
+            <div class="item">
+                <div class="number">15</div>
+                <div class="syllable">euil</div>
+            </div>
+
+            <div class="item">
+                <div class="number">16</div>
+                <div class="syllable">lé</div>
+            </div>
+
+            <div class="item">
+                <div class="number">17</div>
+                <div class="syllable">br</div>
+            </div>
+
+            <div class="item">
+                <div class="number">18</div>
+                <div class="syllable">ch</div>
+            </div>
+
+            <div class="item">
+                <div class="number">19</div>
+                <div class="syllable">qu</div>
+            </div>
+
+            <div class="item">
+                <div class="number">20</div>
+                <div class="syllable">gl</div>
+            </div>
+
+            <div class="item">
+                <div class="number">21</div>
+                <div class="syllable">au</div>
+            </div>
+
+            <div class="item">
+                <div class="number">22</div>
+                <div class="syllable">our</div>
+            </div>
+
+            <div class="item">
+                <div class="number">23</div>
+                <div class="syllable">ol</div>
+            </div>
+
+            <div class="item">
+                <div class="number">24</div>
+                <div class="syllable">om</div>
+            </div>
+
+            <div class="item">
+                <div class="number">25</div>
+                <div class="syllable">aille</div>
+            </div>
+
+            <div class="item">
+                <div class="number">26</div>
+                <div class="syllable">lo</div>
+            </div>
+
+            <div class="item">
+                <div class="number">27</div>
+                <div class="syllable">pr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">28</div>
+                <div class="syllable">fl</div>
+            </div>
+
+            <div class="item">
+                <div class="number">29</div>
+                <div class="syllable">gn</div>
+            </div>
+
+            <div class="item">
+                <div class="number">30</div>
+                <div class="syllable">gu</div>
+            </div>
+
+            <div class="item">
+                <div class="number">31</div>
+                <div class="syllable">eau</div>
+            </div>
+
+            <div class="item">
+                <div class="number">32</div>
+                <div class="syllable">eur</div>
+            </div>
+
+            <div class="item">
+                <div class="number">33</div>
+                <div class="syllable">elle</div>
+            </div>
+
+            <div class="item">
+                <div class="number">34</div>
+                <div class="syllable">aim</div>
+            </div>
+
+            <div class="item">
+                <div class="number">35</div>
+                <div class="syllable">ouil</div>
+            </div>
+
+            <div class="item">
+                <div class="number">36</div>
+                <div class="syllable">la</div>
+            </div>
+
+            <div class="item">
+                <div class="number">37</div>
+                <div class="syllable">dr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">38</div>
+                <div class="syllable">cl</div>
+            </div>
+
+            <div class="item">
+                <div class="number">39</div>
+                <div class="syllable">fr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">40</div>
+                <div class="syllable">vr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">41</div>
+                <div class="syllable">ui</div>
+            </div>
+
+            <div class="item">
+                <div class="number">42</div>
+                <div class="syllable">oc</div>
+            </div>
+
+            <div class="item">
+                <div class="number">43</div>
+                <div class="syllable">ul</div>
+            </div>
+
+            <div class="item">
+                <div class="number">44</div>
+                <div class="syllable">em</div>
+            </div>
+
+            <div class="item">
+                <div class="number">45</div>
+                <div class="syllable">eille</div>
+            </div>
+
+            <div class="item">
+                <div class="number">46</div>
+                <div class="syllable">lou</div>
+            </div>
+
+            <div class="item">
+                <div class="number">47</div>
+                <div class="syllable">cr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">48</div>
+                <div class="syllable">bl</div>
+            </div>
+
+            <div class="item">
+                <div class="number">49</div>
+                <div class="syllable">gr</div>
+            </div>
+
+            <div class="item">
+                <div class="number">50</div>
+                <div class="syllable">oin</div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <section class="result-box">
+
+        <h3>🎯 Correction du test</h3>
+
+        <div class="attempt-display">
+            Essai <span id="attemptNumber">1</span> / 3
+        </div>
+
+        <label class="error-label" for="errors">
+            Nombre d'erreurs de l'apprenant
+        </label>
+
+        <input
+            type="number"
+            id="errors"
+            min="0"
+            max="50"
+            placeholder="Exemple : 2"
+        >
+
+        <button class="calculate-btn" onclick="calculateResult()">
+            CALCULER LE RÉSULTAT
+        </button>
+
+
+       

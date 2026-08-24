@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JÀNG DU WEES — Exercices</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f8ff;
+    color: #123fc0;
+}
+
+.page {
+    width: min(1000px, 94%);
+    margin: 20px auto;
+    background: white;
+    border: 4px solid #123fc0;
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(18, 63, 192, 0.12);
+}
+
+/* EN-TÊTE */
+
+.header {
+    text-align: center;
+    border: 2px solid #123fc0;
+    border-radius: 20px;
+    padding: 18px 14px;
+    margin-bottom: 24px;
+    background: #f5f8ff;
+}
+
+.header h1 {
+    margin: 0;
+    font-family: "Comic Sans MS", cursive;
+    font-size: clamp(30px, 7vw, 52px);
+    color: #123fc0;
+}
+
+.header p {
+    margin: 8px 0 0;
+    font-size: 20px;
+    color: #222;
+}
+
+/* INTRODUCTION */
+
+.intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 24px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #222;
+}
+
+/* SECTIONS */
+
+.section {
+    border: 2px dashed #123fc0;
+    border-radius: 22px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+.section h2 {
+    margin: 0 0 18px;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive;
+    font-size: clamp(26px, 5vw, 38px);
+    color: #123fc0;
+}
+
+/* CONSIGNE */
+
+.consigne {
+    background: #f5f8ff;
+    border: 2px solid #123fc0;
+    border-radius: 18px;
+    padding: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #222;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+/* EXERCICE DE LECTURE */
+
+.exercise-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.exercise-card {
+    min-height: 100px;
+    border: 2px solid #123fc0;
+    border-radius: 18px;
+    padding: 14px;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.number {
+    font-size: 14px;
+    color: #d71919;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.word {
+    font-family: "Comic Sans MS", cursive;
+    font-size: clamp(28px, 6vw, 44px);
+    color: #123fc0;
+}
+
+/* EXERCICE DE SYLLABES */
+
+.syllable-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.syllable {
+    border: 2px solid #123fc0;
+    border-radius: 16px;
+    min-height: 80px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Comic Sans MS", cursive;
+    font-size: clamp(25px, 5vw, 38px);
+    color: #123fc0;
+    background: white;
+}
+
+/* EXERCICE DE CHOIX */
+
+.choice {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.question {
+    border: 2px solid #123fc0;
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+}
+
+.question p {
+    margin-top: 0;
+    color: #222;
+    font-size: 17px;
+}
+
+.choice-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.choice-button {
+    border: 2px solid #123fc0;
+    border-radius: 12px;
+    background: white;
+    padding: 12px;
+    font-family: "Comic Sans MS", cursive;
+    font-size: 25px;
+    color: #123fc0;
+    cursor: pointer;
+}
+
+.choice-button:hover {
+    background: #f5f8ff;
+}
+
+/* ZONE DE RÉPONSE */
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    min-height: 28px;
+}
+
+.correct {
+    color: #123fc0;
+}
+
+.incorrect {
+    color: #d71919;
+}
+
+/* BOUTONS */
+
+.button-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.main-button,
+.back-button {
+    width: min(360px, 100%);
+    padding: 15px 20px;
+    border-radius: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main-button {
+    border: none;
+    background: #123fc0;
+    color: white;
+}
+
+.back-button {
+    border: 2px solid #123fc0;
+    background: white;
+    color: #123fc0;
+}
+
+.main-button:hover,
+.back-button:hover {
+    opacity: 0.9;
+}
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .page {
+        width: 96%;
+        margin: 10px auto;
+        padding: 14px;
+        border-width: 3px;
+    }
+
+    .section {
+        padding: 14px;
+    }
+
+    .exercise-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .syllable-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .choice {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .exercise-list {
+        grid-template-columns: 1fr;
+    }
+
+    .header p,
+    .intro,
+    .consigne {
+        font-size: 16px;
+    }
+
+    .exercise-card {
+        min-height: 90px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <!-- EN-TÊTE -->
+
+    <header class="header">
+        <h1>JÀNG DU WEES</h1>
+        <p>Exercices de lecture</p>
+    </header>
+
+
+    <!-- INTRODUCTION -->
+
+    <p class="intro">
+        Maintenant que les 12 leçons sont terminées,
+        l'apprenant peut s'entraîner à lire les syllabes
+        et les mots étudiés.
+    </p>
+
+
+    <!-- EXERCICE 1 : SYLLABES -->
+
+    <section class="section">
+
+        <h2>1. Je lis les syllabes</h2>
+
+        <div class="consigne">
+            Lis chaque syllabe à voix haute.
+            Prends ton temps et prononce clairement.
+        </div>
+
+        <div class="syllable-list">
+
+            <div class="syllable">ai</div>
+            <div class="syllable">ou</div>
+            <div class="syllable">ar</div>
+            <div class="syllable">or</div>
+
+            <div class="syllable">air</div>
+            <div class="syllable">oir</div>
+            <div class="syllable">our</div>
+            <div class="syllable">eur</div>
+
+            <div class="syllable">an</div>
+            <div class="syllable">on</div>
+            <div class="syllable">en</div>
+            <div class="syllable">un</div>
+
+            <div class="syllable">ail</div>
+            <div class="syllable">eil</div>
+            <div class="syllable">euil</div>
+            <div class="syllable">ouil</div>
+
+            <div class="syllable">tr</div>
+            <div class="syllable">pr</div>
+            <div class="syllable">dr</div>
+            <div class="syllable">br</div>
+
+            <div class="syllable">fr</div>
+            <div class="syllable">vr</div>
+            <div class="syllable">cr</div>
+            <div class="syllable">gr</div>
+
+            <div class="syllable">pl</div>
+            <div class="syllable">bl</div>
+            <div class="syllable">fl</div>
+            <div class="syllable">cl</div>
+
+            <div class="syllable">gl</div>
+            <div class="syllable">ch</div>
+            <div class="syllable">ph</div>
+            <div class="syllable">qu</div>
+
+            <div class="syllable">gn</div>
+            <div class="syllable">gu</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXERCICE 2 : LECTURE -->
+
+    <section class="section">
+
+        <h2>2. Je lis</h2>
+
+        <div class="consigne">
+            Lis les éléments suivants à voix haute.
+            L'enseignant écoute et corrige si nécessaire.
+        </div>
+
+        <div class="exercise-list">
+
+            <div class="exercise-card">
+                <div class="number">1</div>
+                <div class="word">elle</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">2</div>
+                <div class="word">il</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">3</div>
+                <div class="word">air</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">4</div>
+                <div class="word">ail</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">5</div>
+                <div class="word">eau</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">6</div>
+                <div class="word">eux</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">7</div>
+                <div class="word">or</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">8</div>
+                <div class="word">ou</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">9</div>
+                <div class="word">an</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">10</div>
+                <div class="word">on</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">11</div>
+                <div class="word">est</div>
+            </div>
+
+            <div class="exercise-card">
+                <div class="number">12</div>
+                <div class="word">et</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXERCICE 3 : CHOIX -->
+
+    <section class="section">
+
+        <h2>3. Je reconnais</h2>
+
+        <div class="consigne">
+            Choisis la bonne réponse.
+        </div>
+
+        <div class="choice">
+
+            <div class="question">
+                <p>Quelle graphie vois-tu ?</p>
+
+                <div class="choice-buttons">
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'correct')">
+                        ail
+                    </button>
+
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'incorrect')">
+                        eil
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="question">
+                <p>Quelle graphie vois-tu ?</p>
+
+                <div class="choice-buttons">
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'incorrect')">
+                        ouil
+                    </button>
+
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'correct')">
+                        euil
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="question">
+                <p>Quelle graphie vois-tu ?</p>
+
+                <div class="choice-buttons">
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'correct')">
+                        br
+                    </button>
+
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'incorrect')">
+                        bl
+                    </button>
+                </div>
+            </div>
+
+
+            <div class="question">
+                <p>Quelle graphie vois-tu ?</p>
+
+                <div class="choice-buttons">
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'incorrect')">
+                        fr
+                    </button>
+
+                    <button class="choice-button"
+                            onclick="checkAnswer(this, 'correct')">
+                        vr
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="result" class="result"></div>
+
+    </section>
+
+
+    <!-- CONSIGNE FINALE -->
+
+    <section class="section">
+
+        <h2>4. Je lis à voix haute</h2>
+
+        <div class="consigne">
+            <p>
+                Lis les exercices à voix haute.
+            </p>
+
+            <p>
+                L'enseignant écoute la lecture.
+            </p>
+
+            <p>
+                Si la lecture est correcte, continue.
+            </p>
+
+            <p>
+                Si une erreur est faite, l'enseignant peut demander
+                à l'apprenant de relire.
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- BOUTONS -->
+
+    <div class="button-area">
+
+        <button class="main-button" onclick="window.location.href='mots.html'">
+            📖 Retour à la lecture des mots
+        </button>
+
+        <button class="back-button" onclick="history.back()">
+            ← Retour
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+function checkAnswer(button, result) {
+
+    const resultBox = document.getElementById("result");
+
+    if (result === "correct") {
+
+        resultBox.textContent = "✅ Bonne réponse !";
+        resultBox.className = "result correct";
+
+    } else {
+
+        resultBox.textContent = "❌ Essaie encore.";
+        resultBox.className = "result incorrect";
+
+    }
+}
+</script>
+
+</body>
+</html>

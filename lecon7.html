@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JÀNG DU WEES - Leçon 7</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8ff;
+            color: #222;
+        }
+
+        .page {
+            max-width: 900px;
+            margin: auto;
+            padding: 15px;
+        }
+
+        .header {
+            background: white;
+            border: 3px solid #123fc0;
+            border-radius: 20px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #123fc0;
+            font-size: 32px;
+        }
+
+        .header h2 {
+            margin: 10px 0 0;
+            color: #d71919;
+            font-size: 24px;
+        }
+
+        .lesson-title {
+            margin: 25px 0 15px;
+            text-align: center;
+        }
+
+        .lesson-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: #123fc0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .lesson-name {
+            color: #123fc0;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-box {
+            background: white;
+            border: 2px dashed #123fc0;
+            border-radius: 25px;
+            padding: 30px 15px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px 10px;
+            margin-bottom: 45px;
+        }
+
+        .syllable-card {
+            text-align: center;
+        }
+
+        .syllable {
+            font-family: "Comic Sans MS", cursive;
+            font-size: 50px;
+            font-weight: bold;
+            min-height: 70px;
+        }
+
+        /* =========================
+           COULEURS DES LETTRES
+        ========================== */
+
+        .blue {
+            color: #123fc0;
+        }
+
+        .red {
+            color: #d71919;
+        }
+
+        .writing-lines {
+            margin-top: 10px;
+        }
+
+        .line {
+            height: 18px;
+            border-bottom: 2px solid #123fc0;
+            margin: 0 8px;
+        }
+
+        .dashed {
+            border-bottom: 2px dashed #123fc0;
+            position: relative;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #123fc0;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            transform: translateX(-50%);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .btn {
+            flex: 1;
+            text-decoration: none;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .previous {
+            background: #e8edff;
+            color: #123fc0;
+            border: 2px solid #123fc0;
+        }
+
+        .next {
+            background: #123fc0;
+            color: white;
+        }
+
+        @media (max-width: 650px) {
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .header h2 {
+                font-size: 20px;
+            }
+
+            .lesson-name {
+                font-size: 23px;
+            }
+
+            .row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .syllable {
+                font-size: 43px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <header class="header">
+        <h1>JÀNG DU WEES</h1>
+        <h2>Les syllabes complexes</h2>
+    </header>
+
+    <section class="lesson-title">
+        <span class="lesson-number">7</span>
+        <span class="lesson-name">Les syllabes complexes</span>
+    </section>
+
+    <div class="subtitle">
+        (En écriture cursive)
+    </div>
+
+    <main class="lesson-box">
+
+        <!-- =========================
+             PREMIÈRE LIGNE
+        ========================== -->
+
+        <div class="row">
+
+            <!-- ail : ai bleu + l rouge -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">ai</span><span class="red">l</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+            <!-- eil : ei bleu + l rouge -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">ei</span><span class="red">l</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+            <!-- euil : eui bleu + l rouge -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">eui</span><span class="red">l</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+            <!-- ouil : oui bleu + l rouge -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">oui</span><span class="red">l</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             DEUXIÈME LIGNE
+        ========================== -->
+
+        <div class="row">
+
+            <!-- aille : ai bleu + ll rouge + e bleu -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">ai</span><span class="red">ll</span><span class="blue">e</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+            <!-- eille : ei bleu + ll rouge + e bleu -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">ei</span><span class="red">ll</span><span class="blue">e</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+            <!-- euille : eui bleu + ll rouge + e bleu -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">eui</span><span class="red">ll</span><span class="blue">e</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+
+            <!-- ouille : oui bleu + ll rouge + e bleu -->
+            <div class="syllable-card">
+                <div class="syllable">
+                    <span class="blue">oui</span><span class="red">ll</span><span class="blue">e</span>
+                </div>
+
+                <div class="writing-lines">
+                    <div class="line"></div>
+                    <div class="line dashed"><span class="dot"></span></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <div class="buttons">
+
+        <a href="lecon6.html" class="btn previous">
+            ← Leçon précédente
+        </a>
+
+        <a href="lecon8.html" class="btn next">
+            Leçon suivante →
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
