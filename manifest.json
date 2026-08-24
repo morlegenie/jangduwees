@@ -1,0 +1,12 @@
+{
+  "name": "JÀNG DU WEES",
+  "short_name": "JÀNG DU WEES",
+  "description": "Application d'apprentissage du français — JÀNG DU WEES",
+  "lang": "fr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f8ff",
+  "theme_color": "#123fc0"
+}
